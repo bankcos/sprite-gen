@@ -22,6 +22,7 @@ MODULE_DOMAIN = {
     'migrate_request': 'spec',
     'migrate_breathe': 'spec',
     'video': 'gen',
+    'minimax_video': 'gen',
     'gen_set': 'gen',
     'pixel_draw': 'gen',
     'canvas': 'video',

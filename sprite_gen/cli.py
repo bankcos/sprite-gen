@@ -16,7 +16,7 @@ from sprite_gen.compose import game_pack
 from sprite_gen.qa import correction_loop, inspect, preview, score, motion
 from sprite_gen.qa import handed as handed_check
 from sprite_gen.frames import cutout, extract, slice_sheet, ui_kit, unpack_atlas
-from sprite_gen.gen import gen_set, pixel_draw, prepare, video
+from sprite_gen.gen import gen_set, minimax_video, pixel_draw, prepare, video
 from sprite_gen.video import batch as video_batch
 from sprite_gen.video import canvas as video_canvas
 from sprite_gen.video import frames as video_frames
@@ -310,6 +310,18 @@ COMMANDS: dict[str, tuple[str, Callable[[argparse.ArgumentParser], None], Callab
     ),
     # Same declaration-once rule: the module owns the argument surface. Extend and edit force
     # the classic model and inherit resolution/length from the input clip (docs/video.md).
+    "minimax-video": (
+        "Generate video via MiniMax H3 API; optionally submit only for a lightweight relay.",
+        minimax_video.add_arguments, minimax_video.run,
+    ),
+    "minimax-video-resume": (
+        "Resume and download an existing MiniMax task without buying another generation.",
+        minimax_video.add_resume_arguments, minimax_video.run_resume,
+    ),
+    "minimax-video-status": (
+        "Query an existing MiniMax task without downloading or submitting.",
+        minimax_video.add_status_arguments, minimax_video.run_status,
+    ),
     "video-extend": (
         "Continue an existing clip by N seconds via Grok Imagine (POST /v1/videos/extensions).",
         video.add_extend_arguments,

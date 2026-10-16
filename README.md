@@ -99,6 +99,12 @@ Full index: [`docs/README.md`](docs/README.md). Architecture with domain and pip
 - **Independent asset tools** — build repeating backgrounds, project shadows from a foot anchor, and inspect timing, duplicate poses and contact evidence. Ambiguous feet produce an unverified measurement ([details](docs/asset-tools.md)).
 - **Optional scene creation** — place existing PNGs, external frame sequences, loop strips or runtime atlases on named planes, with camera motion and shared shadow projection. Sprite generation can finish before this step ([details](docs/scene.md)).
 
+## MiniMax video support (this fork)
+
+Use `sprite-gen minimax-video` for MiniMax H3 cloud video generation,
+`--submit-only` for relay submission, and `minimax-video-resume` to download an
+existing task without paying for another generation. See [MiniMax setup and examples](docs/minimax-video.md).
+
 ## Quickstart
 
 ```bash
